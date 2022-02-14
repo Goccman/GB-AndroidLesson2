@@ -1,5 +1,6 @@
 package org.ruban.lesson2;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -14,6 +15,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btn_1,btn_2,btn_3,btn_4,btn_5,btn_6,btn_7,btn_8,btn_9,btn_0,btnPlus,
             btnRav,btnMinus,btnDel,btnDot,btnUmn;
     boolean clear_flag;
+    private String str;
+    public static String INDICATOR = "INDICATOR";
 
 
 
@@ -22,6 +25,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        if(savedInstanceState != null)
+        {
+            str = savedInstanceState.getString(INDICATOR, null);
+        }
 
         btn_0 = findViewById(R.id.button_0);
         btn_1 = findViewById(R.id.button_1);
@@ -59,11 +67,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnDot.setOnClickListener (this);
         btnUmn.setOnClickListener (this);
 
+
+
     }
 
     @Override
     public void onClick(View view) {
-        String str = indicator.getText().toString();
+        str = indicator.getText().toString();
         switch (view.getId()) {
             case R.id.button_0:
             case R.id.button_1:
@@ -89,6 +99,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 indicator.setText(str + ((Button) view).getText());
                 break;
 
+
+
         }
     }
+
+
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString(INDICATOR, str);
+    }
+
 }
