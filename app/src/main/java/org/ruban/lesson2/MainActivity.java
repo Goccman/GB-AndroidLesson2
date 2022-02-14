@@ -2,6 +2,7 @@ package org.ruban.lesson2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,6 +13,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView indicator;
     private Button btn_1,btn_2,btn_3,btn_4,btn_5,btn_6,btn_7,btn_8,btn_9,btn_0,btnPlus,
             btnRav,btnMinus,btnDel,btnDot,btnUmn;
+    boolean clear_flag;
 
 
 
@@ -40,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         indicator = findViewById(R.id.indicator);
 
-        btn_0.setOnClickListener (this);
+        btn_0.setOnClickListener(this);
         btn_1.setOnClickListener (this);
         btn_2.setOnClickListener (this);
         btn_3.setOnClickListener (this);
@@ -61,6 +63,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
+        String str = indicator.getText().toString();
+        switch (view.getId()) {
+            case R.id.button_0:
+            case R.id.button_1:
+            case R.id.button_2:
+            case R.id.button_3:
+            case R.id.button_4:
+            case R.id.button_5:
+            case R.id.button_6:
+            case R.id.button_7:
+            case R.id.button_8:
+            case R.id.button_9:
+            case R.id.button_dot:
+            case R.id.button_plus:
+            case R.id.button_rav:
+            case R.id.button_minus:
+            case R.id.button_del:
+            case R.id.button_umn:
+                if (clear_flag) {
+                    clear_flag = false;
+                    str = "";
+                    indicator.setText("");
+                }
+                indicator.setText(str + ((Button) view).getText());
+                break;
 
+        }
     }
 }
