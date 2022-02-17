@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -25,7 +24,8 @@
             android:textSize="35sp"
             android:gravity="bottom|right"
             android:layout_margin="25dp"
-            android:layout_weight="5"
+            android:layout_marginBottom="0dp"
+            android:layout_weight="6"
             android:background="#95FFFFFF"/>
 
 
@@ -34,66 +34,9 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:layout_margin="25dp"
             android:layout_weight="4"
-            android:columnCount="4"
-            android:rowCount="4">
-
-            <Button
-                android:id="@+id/button_7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="7"
-                android:textSize="35sp" />
-
-            <Button
-                android:id="@+id/button_8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="8"
-                android:textSize="35sp" />
-
-            <Button
-                android:id="@+id/button_9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="9"
-                android:textSize="35sp" />
-
-            <Button
-                android:id="@+id/button_del"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="/"
-                android:textSize="35sp" />
-
-            <Button
-                android:id="@+id/button_4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="4"
-                android:textSize="35sp" />
-
-            <Button
-                android:id="@+id/button_5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="5"
-                android:textSize="35sp" />
-
-            <Button
-                android:id="@+id/button_6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="6"
-                android:textSize="35sp" />
-
-            <Button
-                android:id="@+id/button_umn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="*"
-                android:textSize="35sp" />
+            android:columnCount="7"
+            android:rowCount="3">
 
             <Button
                 android:id="@+id/button_1"
@@ -117,6 +60,27 @@
                 android:textSize="35sp" />
 
             <Button
+                android:id="@+id/button_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4"
+                android:textSize="35sp" />
+
+            <Button
+                android:id="@+id/button_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5"
+                android:textSize="35sp" />
+
+            <Button
+                android:id="@+id/button_umn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="*"
+                android:textSize="35sp" />
+
+            <Button
                 android:id="@+id/button_minus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -124,10 +88,31 @@
                 android:textSize="35sp" />
 
             <Button
-                android:id="@+id/button_dot"
+                android:id="@+id/button_6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="."
+                android:text="6"
+                android:textSize="35sp" />
+
+            <Button
+                android:id="@+id/button_7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="7"
+                android:textSize="35sp" />
+
+            <Button
+                android:id="@+id/button_8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="8"
+                android:textSize="35sp" />
+
+            <Button
+                android:id="@+id/button_9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="9"
                 android:textSize="35sp" />
 
             <Button
@@ -135,6 +120,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0"
+                android:textSize="35sp" />
+
+            <Button
+                android:id="@+id/button_del"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="/"
+                android:textSize="35sp" />
+
+            <Button
+                android:id="@+id/button_dot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="."
                 android:textSize="35sp" />
 
             <Button
