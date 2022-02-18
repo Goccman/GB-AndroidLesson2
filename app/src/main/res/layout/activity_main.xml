@@ -20,20 +20,21 @@
 
         <TextView
             android:id="@+id/indicator"
-            android:layout_width="@dimen/indicator_width"
-            android:layout_height="@dimen/indicator_height"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="@dimen/indicator_text_size"
+            android:gravity="bottom|right"
             android:layout_margin="@dimen/indicator_margin"
             android:layout_weight="5"
-            android:background="@color/indicator_background"
-            android:gravity="bottom|right"
-            android:textSize="@dimen/indicator_text_size" />
+            android:background="@color/indicator_background"/>
+
 
 
         <GridLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:layout_margin="25dp"
+            android:layout_margin="@dimen/grid_margin"
             android:layout_weight="4"
             android:columnCount="4"
             android:rowCount="4">
@@ -41,7 +42,7 @@
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_7"
                 style="@style/CalcButtonStyle"
-                android:text="@string/button_7" />
+                android:text="@string/button_7"/>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_8"

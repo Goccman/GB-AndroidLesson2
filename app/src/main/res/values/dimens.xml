@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="indicator_text_size">35sp</dimen>
-    <dimen name="button_margin_right">3dp</dimen>
-    <dimen name="button_text_size">35sp</dimen>
-    <dimen name="calc_button_height">wrap_content</dimen>
-    <dimen name="calc_button_width">wrap_content</dimen>
     <dimen name="indicator_margin">25dp</dimen>
-    <dimen name="indicator_height">match_parent</dimen>
-    <dimen name="indicator_width">match_parent</dimen>
-    <dimen name="indicator_margin_land">25dp</dimen>
     <dimen name="indicator_margin_bottom_land">0dp</dimen>
+    <dimen name="button_margin_right">3dp</dimen>
     <dimen name="calc_button_corner_radius">8dp</dimen>
-
-
-
+    <dimen name="button_text_size">35sp</dimen>
+    <dimen name="calc_button_height">67dp</dimen>
+    <dimen name="calc_button_width">85dp</dimen>
+    <dimen name="grid_margin">25dp</dimen>
 </resources>

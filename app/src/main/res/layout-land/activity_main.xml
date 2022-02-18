@@ -21,12 +21,13 @@
             android:id="@+id/indicator"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="@dimen/indicator_margin_land"
+            android:textSize="@dimen/indicator_text_size"
+            android:gravity="bottom|right"
+            android:layout_margin="@dimen/indicator_margin"
             android:layout_marginBottom="@dimen/indicator_margin_bottom_land"
             android:layout_weight="6"
-            android:background="@color/indicator_background"
-            android:gravity="bottom|right"
-            android:textSize="@dimen/indicator_text_size" />
+            android:background="@color/indicator_background"/>
+
 
 
         <GridLayout
@@ -107,6 +108,7 @@
                 style="@style/CalcButtonSignStyle"
                 android:text="@string/button_dot" />
 
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_plus"
                 style="@style/CalcButtonSignStyle"
@@ -116,6 +118,7 @@
                 android:id="@+id/button_rav"
                 style="@style/CalcButtonRavStyle"
                 android:text="@string/button_rav" />
+
 
         </GridLayout>
 
