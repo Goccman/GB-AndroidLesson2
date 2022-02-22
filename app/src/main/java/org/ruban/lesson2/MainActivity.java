@@ -12,13 +12,11 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private TextView indicator;
-    private Button btn_1,btn_2,btn_3,btn_4,btn_5,btn_6,btn_7,btn_8,btn_9,btn_0,btnPlus,
-            btnRav,btnMinus,btnDel,btnDot,btnUmn;
+    private Button btn_1, btn_2, btn_3, btn_4, btn_5, btn_6, btn_7, btn_8, btn_9, btn_0, btnPlus,
+            btnRav, btnMinus, btnDel, btnDot, btnUmn;
     boolean clear_flag;
     private String str;
     public static String INDICATOR = "INDICATOR";
-
-
 
 
     @Override
@@ -26,8 +24,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        if(savedInstanceState != null)
-        {
+        if (savedInstanceState != null) {
             str = savedInstanceState.getString(INDICATOR, null);
         }
 
@@ -51,29 +48,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         indicator = findViewById(R.id.indicator);
 
         btn_0.setOnClickListener(this);
-        btn_1.setOnClickListener (this);
-        btn_2.setOnClickListener (this);
-        btn_3.setOnClickListener (this);
-        btn_4.setOnClickListener (this);
-        btn_5.setOnClickListener (this);
-        btn_6.setOnClickListener (this);
-        btn_7.setOnClickListener (this);
-        btn_8.setOnClickListener (this);
-        btn_9.setOnClickListener (this);
-        btnPlus.setOnClickListener (this);
-        btnRav.setOnClickListener (this);
-        btnMinus.setOnClickListener (this);
-        btnDel.setOnClickListener (this);
-        btnDot.setOnClickListener (this);
-        btnUmn.setOnClickListener (this);
-
+        btn_1.setOnClickListener(this);
+        btn_2.setOnClickListener(this);
+        btn_3.setOnClickListener(this);
+        btn_4.setOnClickListener(this);
+        btn_5.setOnClickListener(this);
+        btn_6.setOnClickListener(this);
+        btn_7.setOnClickListener(this);
+        btn_8.setOnClickListener(this);
+        btn_9.setOnClickListener(this);
+        btnPlus.setOnClickListener(this);
+        btnRav.setOnClickListener(this);
+        btnMinus.setOnClickListener(this);
+        btnDel.setOnClickListener(this);
+        btnDot.setOnClickListener(this);
+        btnUmn.setOnClickListener(this);
 
 
     }
 
     @Override
     public void onClick(View view) {
-        str = indicator.getText().toString();
+        String str = indicator.getText().toString();
         switch (view.getId()) {
             case R.id.button_0:
             case R.id.button_1:
@@ -86,11 +82,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.button_8:
             case R.id.button_9:
             case R.id.button_dot:
-            case R.id.button_plus:
-            case R.id.button_rav:
-            case R.id.button_minus:
-            case R.id.button_del:
-            case R.id.button_umn:
                 if (clear_flag) {
                     clear_flag = false;
                     str = "";
@@ -98,12 +89,89 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 indicator.setText(str + ((Button) view).getText());
                 break;
+            case R.id.button_plus:
+            case R.id.button_minus:
+            case R.id.button_del:
+            case R.id.button_umn:
+                if (clear_flag) {
+                    clear_flag = false;
+                    indicator.setText("");
+                }
+                indicator.setText(str + " " + ((Button) view).getText() + " ");
+                break;
 
-
+            case R.id.button_rav:
+                getResult();
+                break;
 
         }
     }
 
+    private void getResult() {
+        String s = indicator.getText().toString();
+        if (s == null || s.equals("")) {
+            return;
+        }
+        if (!s.contains("")) {
+            return;
+        }
+        if (clear_flag) {
+            clear_flag = false;
+            return;
+        }
+        clear_flag = true;
+
+        String str1 = s.substring(0, s.indexOf("")); // Получить символ перед оператором
+        String str_y = s.substring(s.indexOf("") + 1, s.indexOf("") + 2); // Получаем оператор
+        String str2 = s.substring(s.indexOf("") + 3); // Получить символ после оператора
+
+        double result = 0;
+        if (!str1.equals("") && !str2.equals("")) {
+            double num1 = Double.parseDouble(str1);
+            double num2 = Double.parseDouble(str2);
+
+            if (str_y.equals("+")) {
+                result = num1 + num2;
+            } else if (str_y.equals("-")) {
+                result = num1 - num2;
+            } else if (str_y.equals("/")) {
+                if (num2 == 0) {
+                    result = 0;
+                } else {
+                    result = num1 / num2;
+                }
+            } else if (str_y.equals("*")) {
+                result = num1 * num2;
+            }
+            if (!str1.contains(".") && !str2.contains(".") && !s.equals("/")) {
+                int k = (int) result;
+                indicator.setText(k);
+            } else {
+                indicator.setText(result + "");
+            }
+        } else if (!str1.equals("") && str2.equals("")) {
+            indicator.setText(s);
+        } else if (str1.equals("") && !str2.equals("")) {
+            double num2 = Double.parseDouble(str2);
+            if (s.equals("+")) {
+                result = 0 + num2;
+            } else if (s.equals("-")) {
+                result = 0 - num2;
+            } else if (s.equals("*")) {
+                result = 0;
+            } else if (s.equals("/")) {
+                result = 0;
+            }
+            if (!str2.contains(".")) {
+                int r = (int) result;
+                indicator.setText(r + "");
+            } else {
+                indicator.setText(result + "");
+            }
+        } else {
+            indicator.setText("");
+        }
+    }
 
 
     @Override

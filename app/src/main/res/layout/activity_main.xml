@@ -119,7 +119,6 @@
                 style="@style/CalcButtonSignStyle"
                 android:text="@string/button_plus" />
 
-
         </GridLayout>
 
 
